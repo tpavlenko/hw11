@@ -11,7 +11,7 @@
 // list.myPush();
 
 
-// -----PUSH-----
+----- PUSH-----
 
 var list = [1, 2, 3];
 
@@ -23,80 +23,104 @@ function myPush(...args) {
 console.log(myPush.call(list, 4, 5));
 
 
-// var list = [1, 2, 3];
 
-// function myPush(...args) {
-// 	this[this.length] = args;
-// 	var result = this.flat(Infinity);
-// 	return result;
-// }
+var list = [1, 2, 3];
 
-// console.log(myPush.call(list, 4, 5));
+function myPush(...args) {
+	this[this.length] = args;
+	var result = this.flat(Infinity);
+	return result;
+}
 
-
-// var list = [1, 2, 3];
-
-// function myPush(...args) {
-
-// 	var result = this.concat(args);
-// 	return result;
-// }
-
-// console.log(myPush.call(list, 4, 5));
+console.log(myPush.call(list, 4, 5));
 
 
-// -----JOIN-----
 
-// var list = [1, 2, 3];
+var list = [1, 2, 3];
 
-// function myJoin(arr) {
-// 	var result = arr.toString();
-// 	return result;
-// }
+function myPush(...args) {
 
-// console.log(myJoin(list));
+	var result = this.concat(args);
+	return result;
+}
 
-
-// -----REVERSE-----
-
-// var list = [1, 2, 3];
-
-// function myReverse(arr) {
-// 	var arrayLength = arr.length;
-// 	for (var i = 0; i < arrayLength - 1; i++) {
-// 		arr.splice(i, 0, arr.pop());
-// 	}
-// 	return arr;
-// }
-
-// console.log(myReverse(list));
+console.log(myPush.call(list, 4, 5));
 
 
-// var list = [1, 2, 3];
 
-// function myReverse(arr) {
-// 	arr = arr.reduceRight(function (previousValue, currentValue) {
-// 		previousValue.push(currentValue);
-// 		return previousValue;
-// 	}, []);
-// 	return arr;
-// }
+----- JOIN-----
 
-// console.log(myReverse(list));
+var list = [1, 2, 3];
+
+function myJoin(arr, sign) {
+	sign = !sign ? "," : sign;
+	if (!arr) return "";
+
+	var result = "";
+	for (var i = 0; i < arr.length; i++) {
+		result += i > 0 ? sign : "";
+		result += arr[i];
+	}
+	return result;
+}
+
+console.log(myJoin(list, "; "));
 
 
-// var list = [1, 2, 3];
 
-// function myReverse(arr) {
-// 	var arrayLength = arr.length,
-// 		halfLength = arrayLength / 2;
+var list = [1, 2, 3];
 
-// 	for (var i = 0; i < halfLength; i++) {
-// 		var start = arr[i];
-// 		arr[i] = arr[arrayLength - i - 1];
-// 		arr[arrayLength - i - 1] = start;
-// 	}
-// 	return arr;
-// }
+function myJoin(arr) {
+	var result = arr.toString();
+	return result;
+}
 
-// console.log(myReverse(list));
+console.log(myJoin(list));
+
+
+
+----- REVERSE-----
+
+var list = [1, 2, 3];
+
+function myReverse(arr) {
+	var arrayLength = arr.length;
+	for (var i = 0; i < arrayLength - 1; i++) {
+		arr.splice(i, 0, arr.pop());
+	}
+	return arr;
+}
+
+console.log(myReverse(list));
+
+
+
+var list = [1, 2, 3];
+
+function myReverse(arr) {
+	arr = arr.reduceRight(function (previousValue, currentValue) {
+		previousValue.push(currentValue);
+		return previousValue;
+	}, []);
+	return arr;
+}
+
+console.log(myReverse(list));
+
+
+
+var list = [1, 2, 3];
+
+function myReverse(arr) {
+	var arrayLength = arr.length,
+		halfLength = arrayLength / 2;
+
+	for (var i = 0; i < halfLength; i++) {
+		var start = arr[i];
+		arr[i] = arr[arrayLength - i - 1];
+		arr[arrayLength - i - 1] = start;
+	}
+	return arr;
+}
+
+console.log(myReverse(list));
