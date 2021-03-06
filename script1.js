@@ -3,11 +3,13 @@
 //  alrt(greetingMessage + input.value)
 
 
-let greetingMessage = 'Hello,';
 let input = document.querySelector('input[id="name"]');
+let greetingMessage = 'Hello, ';
 
 function greeting() {
-	console.log(`${greetingMessage} ${input.value}!`);
+	console.log(greetingMessage + input.value);
 }
+
+greeting.bind(input);
 
 setInterval(greeting, 5000);
